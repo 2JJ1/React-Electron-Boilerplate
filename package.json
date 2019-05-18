@@ -1,0 +1,61 @@
+{
+	"name": "electron-react-redux",
+	"version": "1.1.0",
+	"private": true,
+	"author": "jonathonpowell.net",
+	"description": "Quick start for creating a React.js & Redux app inside of Electron.js",
+	"dependencies": {
+		"electron-is-dev": "^1.0.1"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"electron-dev": "concurrently \"npm run start\" \"wait-on http://localhost:3000 && electron .\"",
+		"electron-pack": "build -c.extraMetadata.main=build/main.js",
+		"dist": "npm run build && npm run electron-pack"
+	},
+	"build": {
+		"asar": true,
+		"productName": "Electron-React-Redux",
+		"win": {
+			"target": [
+				{
+					"target": "nsis",
+					"arch": "ia32"
+				}
+			]
+		},
+		"files": [
+			"build/**/*",
+			"node_modules/**/*"
+		],
+		"directories": {
+			"buildResources": "assets"
+		}
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"concurrently": "^4.1.0",
+		"electron": "^4.2.2",
+		"electron-builder": "^20.40.2",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"react-redux": "^6.0.1",
+		"react-scripts": "2.1.8",
+		"redux": "^4.0.1",
+		"typescript": "^3.4.1",
+		"wait-on": "^3.2.0"
+	},
+	"main": "public/main.js",
+	"homepage": "./"
+}

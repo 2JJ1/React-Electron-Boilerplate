@@ -1,0 +1,18 @@
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - filter:
+      - build/**/*
+      - build/**/*
+      - node_modules/**/*
+extraMetadata:
+  main: build/main.js
+asar: true
+productName: Electron-React-Redux
+win:
+  target:
+    - target: nsis
+      arch: ia32
+extends: react-cra
+electronVersion: 4.2.2
